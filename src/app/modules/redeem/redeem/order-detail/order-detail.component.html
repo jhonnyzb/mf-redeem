@@ -1,0 +1,117 @@
+<app-spinner [show]="isLoading"></app-spinner>
+<div class="order-detail">
+  <div class="order-detail-container">
+    <div class="order-detail-container__button-divider">
+      <div class="order-detail-container__button-content">
+        <span class="bold-16 primary">Detalles del pedido</span>
+      </div>
+    </div>
+  </div>
+  <div class="order-detail-container__grid">
+    <div class="order-products">
+      <div class="order-products__card">
+        <div class="order-products__image-content">
+          <img src="../../../../assets/caja-carrito.svg" class="order-products__image" alt="caja carrito" />
+        </div>
+
+        <div>
+          <div>
+            <span class="order-products__text-content bold-16 primary">Tu compra:</span>
+            <ul class="order-products__list">
+              <li class="order-products__list-item" *ngFor="let product of cart">
+                <span class="regular-14 primary">{{ product.Quantity }}</span>
+                <p class="regular-14 primary order-products__ellipsis">{{ product.ShortName }}</p>
+              </li>
+            </ul>
+          </div>
+          <div>
+            <div>
+              <span class="regular-16 primary">Total:</span><br>
+            </div>
+            <div>
+              <div class="regular-24 primary">
+                {{ totalPoints | number}}<span class=" regular-12 primary order-products__points-number">Puntos</span>
+              </div>
+              <div class="regular-24 primary" *ngIf="totalCop">
+                {{ totalCop | number}}<span class=" regular-12 primary order-products__points-number">COP</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="order-facts">
+      <div class="order-facts__card">
+        <span class="regular-14 primary order-facts__main">Dirección Principal</span>
+        <div class="order-facts__content">
+          <div class="order-facts__row">
+            <div class="order-facts__row-inside">
+              <div class="content-info__adress">
+                <div class="content-info__content-contact">
+                  <span class="content-info__text bold-16 primary mb-2">
+                    Dirección de envío
+                  </span>
+                  <span class="content-info__text content-info__text--ellipsis regular-14 primary" *ngIf="mainAddress">{{ mainAddress.ResidenceAddress }}</span>
+                  <span class="content-info__text regular-14 primary" *ngIf="mainAddress">{{ mainAddress.CityName }} - {{
+                    mainAddress.Neighborhood }}</span>
+                  <span class="content-info__text regular-14 primary" *ngIf="mainAddress">{{ countryName }}</span>
+                </div>
+              </div>
+              <div class="col-12 box-btn-edit box-btn-edit--mobile">
+                <button class="box-btn-edit__edit regular-12 primary"> <span class="bold-16 primary"
+                    (click)="goAddress()"> Editar</span></button>
+              </div>
+            </div>
+            <div class="order-facts__row-inside">
+              <div class="content-info__contact">
+                <div class="content-info__content-delivery">
+                  <span class="content-info__text bold-16 primary mb-2">
+                    Datos de contacto:
+                  </span>
+                  <span class="content-info__text regular-14 primary">{{ userData.person.email }}</span>
+
+                  <span class="content-info__text regular-14 primary">{{ userData.person.phone1 }}</span>
+
+                </div>
+              </div>
+              <div class="col-12 box-btn-edit">
+                <button class=" box-btn-edit__update regular-12 primary" (click)="goContact()"> <span
+                    class="bold-16 primary">Actualizar datos</span></button>
+              </div>
+            </div>
+          </div>
+          <div class="order-facts__row">
+            <div class="order-facts__check-box">
+              <p class="order-facts__text-p">
+                <span class="regular-12 primary">Antes de continuar por favor confirma que tus datos estén
+                  correctos</span>
+              </p>
+              <div class="order-facts__checkbox-box">
+                <input class="order-facts__custom_checkbox" id="checkDireccionEnvio" type="checkbox" title="Confirmar"
+                  [(ngModel)]="isCheckAddress" (change)="changeCheckbox()" />
+                <label class="order-facts__custom-checkbox-label"></label>
+              </div>
+            </div>
+
+            <div class="order-facts__check-box">
+              <p class=" order-facts__text-p regular-12 primary">
+                He leído, entendido y autorizo <span (click)="tycRedemptions()" class="order-facts__underline">términos y condiciones.</span>
+              </p>
+              <div class="order-facts__checkbox-box">
+                <input class="order-facts__custom_checkbox" id="checkTerminosCondiciones" type="checkbox" title="Aceptar" [(ngModel)]="isCheckTerm"
+                  (change)="changeCheckbox()" />
+                <label class="order-facts__custom-checkbox-label"></label>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="redeem__btn-container">
+        <button [ngClass]="{ disable: cart.length == 0 }" type="button" class="redeem__btn-now bold-16"
+          (click)="onContinue()">
+          Finalizar redención
+        </button>
+      </div>
+    </div>
+  </div>
+</div>

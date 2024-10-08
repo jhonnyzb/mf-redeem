@@ -1,0 +1,63 @@
+<div class="order-overview">
+  <div class="order-overview">
+    <div class="order-overview__button-divider">
+      <div class="order-overview__button-content">
+        <span class="bold-16 primary">Detalles del pedido</span>
+      </div>
+    </div>
+  </div>
+  <div class="order-overview__cart-card">
+    <div class="order-overview__image-content">
+      <img src="../../../../assets/img/carrito.svg" class="order-overview__image-cart" alt="carrito" />
+    </div>
+    <div class="order-overview__image-text">
+      <div class="bold-16 primary order-overview__title">¡Gracias por tu compra!</div>
+      <span class="regular-14 primary order-overview__text-secondary">Abajo encontrarás el detalle de la
+        redención.</span>
+    </div>
+  </div>
+  <div class="order-overview__cart-detail order-overview__m-b" [ngClass]="{ 'order-overview__m-b': mixPayment}" >
+    <div class="order-overview__cart-products">
+      <div class="order-overview__image-content">
+        <img src="../../../../assets/caja-carrito.svg" class="order-overview__image" alt="caja carrito" />
+      </div>
+      <div>
+        <span class="order-overview__text-content bold-16 primary">Tu compra:</span>
+        <ul class="order-overview__list">
+          <li class="order-overview__list-item" *ngFor="let product of cart">
+            <span class="regular-14 primary">{{ product.Quantity }}</span>
+            <p class="regular-14 primary">{{ product.ShortName }}</p>
+          </li>
+        </ul>
+      </div>
+    </div>
+    <div class="order-overview__total-points">
+      <div>
+        <div>
+          <span class="regular-16 primary">Total:</span><br>
+        </div>
+        <div>
+          <div class="regular-24 primary">
+            {{ totalPoints | number}}<span class=" regular-12 primary order-overview__points-number">Puntos</span>
+          </div>
+          <div class="regular-24 primary" *ngIf="totalCop">
+            {{ totalCop | number}}<span class="order-overview__points-number regular-12 primary">COP</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="order-overview__mix-pay" *ngIf="mixPayment">
+    <div class=" order-overview__text-order regular-16 primary">
+      Se ha registrado el pedido #{{dataMixPay.orderId}}, se te dirigirá a la página de PayU para que completes el pago.
+    </div>
+    <div class="order-overview__btn-content-mix">
+      <button class="button order-overview__btn-mix bold-16 primary" (click)="onSubmit()">Ir a pagar
+      </button>
+    </div>
+  </div>
+  <div class="order-overview__btn-content">
+    <button class="button order-overview__btn bold-16 primary" (click)="goHome()">Ir al inicio
+    </button>
+  </div>
+</div>

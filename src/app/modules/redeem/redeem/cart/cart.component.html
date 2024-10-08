@@ -1,0 +1,140 @@
+<div class="cart">
+  <div class="cart-container">
+    <div class="cart-container__button-divider">
+      <div class="cart-container__button-content">
+        <span class="bold-16 primary">Carrito de compras</span>
+      </div>
+    </div>
+  </div>
+</div>
+<div>
+  <div *ngIf="cart.length == 0">
+    <div class="cart-empty">
+      <div class="cart-empty__image-cart">
+        <img src="../../../../assets/img/carrito-vacio.svg" class="image-cart" alt="carrito vacío" />
+      </div>
+      <p class="cart-empty__text bold-32 primary">
+        ¡No tienes productos en tu carrito!
+      </p>
+      <div class="cart-empty__btn">
+        <button class="cart-empty__btn-catalog bold-16" (click)="goCatalog()"><span class=" regular-18 primary">Ver
+            catálogo</span></button>
+      </div>
+    </div>
+
+  </div>
+  <div class="cart-list" *ngIf="cart.length > 0">
+    <div class="mt-3 cart-list__card"
+      *ngFor="let product of cart  | paginate: { totalItems: paginate.totalElements, itemsPerPage: paginate.pageSize, currentPage: paginate.currentPage }">
+      <div class="cart-list__content card-article">
+        <div class="cart-list__image">
+          <img [src]="product.ImagePath" (error)="onImageError(product)" alt="" />
+        </div>
+
+        <div class="cart-list__text">
+          <div class="cart-list__text-col">
+            <div class="cart-list__content-name">
+              <span class="cart-list__name bold-16 primary">
+                {{product.ShortName}}
+              </span>
+            </div>
+            <span class="cart-list__detalle mb-3 regular-12 primary">
+              {{product.Description}}
+            </span>
+          </div>
+
+
+        </div>
+        <div class="cart-list__points-counter">
+          <div class="cart-list__container-counter">
+            <span class="cart-list__text-q regular-16 primary">Cantidad: </span>
+            <div class="cart-list__container-cont">
+              <button class="cart-list__counter" [ngClass]="{'cart-list__counter--inactive': product.Quantity == 1}">
+              </button>
+              <mat-icon class="cart-list__icon" [ngClass]="{'cart-list__icon--inactive': product.Quantity == 1}"
+                fontSet="material-icons-outlined" (click)="decrement(product)">remove</mat-icon>
+
+              <span class="cart-list__number-display regular-16 primary">
+                {{ product.Quantity }}
+              </span>
+
+              <button class="cart-list__counter">
+              </button>
+              <mat-icon class="cart-list__icon" (click)="increment(product)">add</mat-icon>
+              <div class="cart-list__container-d" (click)="delete(product)">
+                <button class="cart-list__delete"></button>
+                <mat-icon class="cart-list__icon-delete">delete</mat-icon>
+              </div>
+
+            </div>
+
+          </div>
+
+
+          <div class="cart-list__points">
+            <span class="regular-24 primary cart-list__points-number">{{ product.Points | number }}</span>
+            <span class="regular-14 primary">Puntos</span>
+          </div>
+
+        </div>
+      </div>
+    </div>
+    <div class="total-points">
+      <span class="total-points__mr regular-24 primary">Total:</span>
+      <div>
+        <span class=" regular-24 primary cart-list__points-number">{{totalPoints | number}}</span>
+        <span class="regular-14 primary">Puntos</span>
+      </div>
+    </div>
+    <div class="redeem">
+      <div class="redeem__toggle-btn">
+        <span *ngIf="mixPayment && !redeemByPoints" class="total-points__mr regular-24 primary">
+          Aquí podrás pagar con puntos y dinero:
+        </span>
+        <span *ngIf="!mixPayment || redeemByPoints" class="total-points__mr regular-24 primary">
+          Aquí podrás pagar con tus puntos:
+        </span>
+        <div *ngIf="mixPayment && !redeemByPoints" [ngClass]="{'redeem__btn-select--active': mixPay}" class="redeem__btn-select" (click)="calculateMixPay(true)">
+          <button *ngIf="!mixPay" type="button" class="redeem__btn">
+            <mat-icon class="" fontSet="material-icons-outlined">remove</mat-icon>
+          </button>
+          <button *ngIf="mixPay" type="button" class="redeem__btn-active">
+            <mat-icon class="" fontSet="material-icons-outlined">check</mat-icon>
+          </button>
+        </div>
+      </div>
+      <div class="redeem__mix-payment" *ngIf="mixPay ">
+        <div class="redeem__mix-payment-container" *ngIf="dataMixPay">
+          <span class="redeem__text regular-16 primary">
+            {{textMixPay}}
+          </span>
+          <div class="redeem__row-inside">
+              <mat-form-field>
+                <mat-label>Puntos</mat-label>
+                <input matInput readonly [value]="dataMixPay.totalValueInPoints">
+              </mat-form-field>
+              <mat-form-field>
+                <mat-label>{{dataMixPay.currency}}</mat-label>
+                <input matInput readonly [value]="dataMixPay.totalValueInMoney">
+              </mat-form-field>
+            </div>
+        </div>
+      </div>
+      <div class="redeem__btn-container">
+        <button type="button" class="redeem__btn-now bold-16" (click)="goOrder()">
+          Redimir ahora
+        </button>
+      </div>
+    </div>
+    <div class="paginator__containPaginate">
+      <div class="paginator__paginate">
+        <app-paginate [paginate]="paginate" (pageCurrent)="pageChanged($event)"></app-paginate>
+      </div>
+    </div>
+
+
+
+  </div>
+
+
+</div>

@@ -1,0 +1,71 @@
+.container-inputs-data-product{
+  margin-bottom: 8px;
+  position: relative;
+}
+
+.invalid-feedback-data-product {
+  color: red;
+  font-size: 11px;
+  line-height: 13px;
+  position: absolute;
+  top: 63px;
+}
+
+.height-input-form {
+  width: 100% !important;
+  background: transparent;
+}
+
+.centrar-boton {
+  display: flex;
+  justify-content: center;
+}
+
+.form-horizontal {
+  display: flex;
+  justify-content: center;
+}
+
+.content-notas {
+  width: 50%;
+}
+
+.button-enviar {
+  max-width: 295px;
+  max-height: 55px;
+}
+
+.text-center {
+  width: 100%;
+  margin-bottom: 5%;
+}
+
+.text-nota {
+
+  color: var(--ngx-valepro-color-secondary);
+  font-size: 14px;
+}
+
+.description {
+  color: var(--ngx-valepro-color-secondary);
+}
+
+.text-email {
+  font-weight: bold;
+}
+
+.icon-close {
+  display: flex;
+  justify-content: flex-end;
+  font-style: initial;
+  cursor: pointer;
+}
+
+.container-dialog-producto {
+  padding: 1rem 2rem;
+}
+
+.scroll-form{
+  height: 500px;
+  overflow-y: auto;
+}

@@ -1,0 +1,18 @@
+<div class="container-dialog-custom">
+    <em class="icon-close" (click)="closeDialog()"></em>
+    <div *ngIf="data.isIcon" class="info">
+      <img class="mb-5" [src]="data.icon" alt="">
+    </div>
+    <div *ngIf="data.isTitle" class="bold-25 terciary text-center block text_tittle">
+      {{data.title}}
+    </div>
+    <div *ngIf="data.isMessage" class="regular-16 terciary primario text-center block">
+      {{data.message}}
+    </div>
+
+    <div class="modal-confirma-borrar" mat-dialog-actions>
+        <button *ngIf="data.isCancelButton"  (click)="closeDialog()">Cancelar</button>
+        <button *ngIf="data.isConfirmButton"  (click)="acceptButton()" >{{data.confirmButtonText}}</button>
+    </div>
+  </div>
+

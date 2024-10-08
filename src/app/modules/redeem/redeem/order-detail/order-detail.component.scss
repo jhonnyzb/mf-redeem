@@ -1,0 +1,358 @@
+.order-detail-container {
+  display: flex;
+  flex-direction: column;
+  max-width: 1200px;
+  margin: 20px 0 1rem;
+  height: 100%;
+
+  &__button-divider {
+    border-radius: 22px;
+    background-color: var(--ngx-valepro-color-primary);
+    height: 44px;
+    display: flex;
+    align-items: center;
+  }
+
+  &__button-content {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    padding-left: 1rem;
+  }
+
+  &__grid {
+    display: grid;
+    grid-template-columns: 1fr;
+  }
+}
+
+.order-products {
+  &__card {
+    min-height: 151px;
+    padding: 16px 0;
+    width: 100%;
+    background-color: var(--color-white);
+    box-shadow: 0px 0px 6px #00000029;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-items: flex-start;
+    margin: 0 0 1rem 0;
+    border-radius: 8px;
+
+  }
+
+  &__image-content {
+    display: flex;
+    justify-content: center;
+    padding-left: 10px;
+  }
+
+  &__image {
+    max-width: 60px;
+    width: 100%;
+  }
+
+  &__text-content {
+    margin-bottom: 0.5rem;
+  }
+
+  &__list {
+    padding-left: 0;
+  }
+
+  &__list-item {
+    display: flex;
+
+    p {
+      margin: 0;
+      padding-left: 5px;
+    }
+  }
+
+  &__points-number {
+    margin-left: 2px;
+  }
+
+  &__ellipsis {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 23ch;
+    display: block;
+  }
+}
+
+.order-facts {
+  &__card {
+    min-height: 410px;
+    padding: 16px 0;
+    width: 100%;
+    background-color: var(--color-white);
+    box-shadow: 0px 0px 6px #00000029;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    border-radius: 8px;
+    margin: 0 0 1rem 0;
+  }
+
+  &__main {
+    width: 139px;
+    background-color: var(--ngx-valepro-color-tertiary);
+    padding: 4px 0rem 4px 1rem;
+    margin-bottom: 1rem;
+  }
+
+  &__content {
+    margin: 0 24px;
+  }
+
+  &__text-p {
+    max-width: 370px;
+  }
+
+  &__row {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+    &:nth-child(1) {
+      border-bottom: 1px solid #00000029;
+      margin-bottom: 30px;
+    }
+  }
+
+  &__row-inside {
+    display: flex;
+    flex-direction: column;
+    min-width: 243px;
+  }
+
+  &__custom_checkbox:checked+.order-facts__custom-checkbox-label::before {
+    background-color: var(--ngx-valepro-color-secondary);
+    color: var(--color-white);
+
+  }
+
+  &__custom_checkbox+.order-facts__custom-checkbox-label::before {
+    content: '\2713';
+    display: inline-block;
+    width: 16px;
+    height: 16px;
+    margin-right: 8px;
+    border: 2px solid var(--ngx-valepro-color-secondary);
+    border-radius: 4px;
+    text-align: center;
+    vertical-align: middle;
+    font-size: 16px;
+    line-height: 18px;
+    color: transparent;
+    cursor: pointer;
+    margin-bottom: 6px;
+    margin-left: 2rem;
+  }
+
+  &__custom_checkbox {
+    opacity: 0;
+    left: 52px;
+    bottom: 3px;
+    position: relative;
+    cursor: pointer;
+  }
+
+  &__checkbox-box {
+    display: flex;
+    align-items: center;
+
+    input:hover {
+      box-shadow: -5px 2px 0px 35px rgba(0, 0, 0, 0.1);
+    }
+
+  }
+
+  &__check-box {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+  }
+
+  &__custom-checkbox-label {
+    display: flex;
+  }
+
+  &__underline {
+    text-decoration: underline var(--ngx-valepro-color-secondary);
+    cursor: pointer;
+  }
+
+}
+
+.content-info {
+  display: grid;
+  grid-template-columns: 1fr;
+  padding-bottom: 1rem;
+  border-bottom: 2px solid #ece7e7;
+
+  &__adress {
+    width: 100%;
+  }
+
+  &__content-delivery {
+    padding-top: 0;
+    display: flex;
+    flex-flow: column;
+    min-height: 70px;
+
+  }
+
+  &__contact {
+    width: 100%;
+  }
+
+  &__content-contact {
+    display: flex;
+    flex-flow: column;
+    min-height: 70px;
+  }
+
+  &__text--ellipsis {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 40ch;
+    display: block;
+  }
+}
+
+.box-btn-edit {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  position: relative;
+  bottom: 21px;
+
+  &__edit {
+    background-color: var(--ngx-valepro-color-blanco);
+    border-radius: 30px;
+    border: 1px solid var(--ngx-valepro-color-tertiary);
+    margin-top: 1rem;
+    height: 40px;
+    width: 122px;
+    cursor: pointer;
+
+    &--mobile {
+      bottom: 17px;
+    }
+  }
+
+  &__update {
+    background-color: var(--ngx-valepro-color-blanco);
+    border-radius: 30px;
+    border: 1px solid var(--ngx-valepro-color-tertiary);
+    margin-top: 1rem;
+    height: 40px;
+    width: 160px;
+    cursor: pointer;
+  }
+}
+
+.redeem {
+  display: flex;
+  flex-direction: column;
+  margin-top: 2rem;
+
+  &__btn-container {
+    margin: 2rem 0 200px;
+    display: flex;
+    justify-content: flex-end;
+  }
+
+  &__btn-now {
+    width: 260px;
+    height: 44px;
+    border: none;
+    border-radius: 22px;
+    background-color: var(--ngx-valepro-color-tertiary);
+    color: var(--ngx-valepro-color-secondary);
+  }
+
+}
+
+
+@media screen and (min-width: 768px) and (max-width: 1023px) {
+  .order-detail-container {
+    &__grid {
+      display: grid;
+      grid-template-columns: 251px 3fr;
+    }
+  }
+
+  .box-btn-edit {
+    &__edit--mobile {
+      bottom: 17px;
+    }
+  }
+
+  .order-products {
+    &__card {
+      min-height: 270px;
+      flex-direction: column;
+      justify-content: space-around;
+      align-items: center;
+    }
+  }
+  .order-facts {
+    &__card {
+      min-height: 270px;
+      margin: 0 0 1rem 24px !important;
+      width: 95%;
+    }
+  }
+}
+
+@media screen and (min-width: 1024px) {
+  .order-detail-container {
+    &__grid {
+      display: grid;
+      grid-template-columns: 300px 3fr;
+    }
+  }
+
+  .order-products {
+    &__card {
+      min-height: 270px;
+      flex-direction: column;
+      justify-content: space-around;
+      align-items: center;
+    }
+  }
+
+  .order-facts {
+    &__card {
+      min-height: 270px;
+      margin: 0 0 1rem 24px !important;
+      width: 96.5%;
+    }
+
+    &__row {
+      flex-direction: row;
+      justify-content: space-between;
+    }
+
+    &__custom_checkbox {
+      left: -28px;
+    }
+
+    &__checkbox-box {
+      display: flex;
+      flex-direction: row-reverse;
+    }
+  }
+
+  .box-btn-edit {
+    &__edit--mobile {
+      bottom: 17px;
+    }
+  }
+}

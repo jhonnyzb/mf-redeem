@@ -1,0 +1,25 @@
+
+<div class="pag__paginate">
+    <div class="pag__textPaginate">
+        <span class="regular-12 primary pag__itemsPaginateText">Ítems por página:{{ pageSize }}</span>
+        <span class="regular-12 primary">{{rangeInit}} - {{ rangeEnd }} de {{ totalElements }}</span>
+    </div>
+    <div class="pag__arrowsPaginate">
+        <mat-icon class="pag__arrowIcon pag__arrowIcon--marginHorizontal"  [ngClass]="{
+          'pag__arrowIcon--colorActive': totalPages > 0 && currentPage !== 1,
+          'pag__arrowIcon--colorInactive': totalPages === 0 || currentPage === 1
+        }" (click)="getFirstPage()">skip_previous</mat-icon>
+        <mat-icon class="pag__arrowIcon pag__arrowIcon--marginHorizontal" [ngClass]="{
+          'pag__arrowIcon--colorActive': totalPages > 0 && currentPage !== 1,
+          'pag__arrowIcon--colorInactive': totalPages === 0 || currentPage === 1
+        }" (click)="getPreviousPage()">chevron_left</mat-icon>
+        <mat-icon class="pag__arrowIcon pag__arrowIcon--marginHorizontal" [ngClass]="{
+          'pag__arrowIcon--colorActive': totalPages > 0 && currentPage < totalPages,
+          'pag__arrowIcon--colorInactive': totalPages === 0 || currentPage === totalPages
+        }" (click)="getNextPage()">chevron_right</mat-icon>
+        <mat-icon class="pag__arrowIcon pag__arrowIcon--marginLeft " style="margin-left: 8px;" [ngClass]="{
+          'pag__arrowIcon--colorActive': totalPages > 0 && currentPage < totalPages,
+          'pag__arrowIcon--colorInactive': totalPages === 0 || currentPage === totalPages
+        }" (click)="getLastPage()">skip_next</mat-icon>
+    </div>
+</div>

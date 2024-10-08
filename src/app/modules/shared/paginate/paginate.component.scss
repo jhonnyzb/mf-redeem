@@ -1,0 +1,76 @@
+.pag {
+    &__paginateContain {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background-color: aqua;
+    }
+
+    &__paginate {
+        width: 100%;
+        display: flex;
+        justify-content: stretch;
+        align-items: center;
+    }
+
+    &__textPaginate {
+        width: 50%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    &__arrowsPaginate {
+        display: flex;
+        margin-right: 20px;
+    }
+
+    &__arrowIcon {
+        font-size: 24px;
+        cursor: pointer;
+
+        &--marginHorizontal{
+            margin-left: 8px;
+            margin-right: 8px;
+        }
+
+        &--marginLeft{
+            margin-left: 8px;
+        }
+    
+        &--colorInactive {
+          color: #E1E1E1;
+        }
+    
+        &--colorActive {
+          color: #A8A4B6;
+        }
+      }
+}
+
+@media screen and (min-width: 768px) {
+    .pag {
+        &__paginateContain {
+            justify-content: end;
+        }
+
+        &__textPaginate {
+            flex-direction: row;
+            justify-content: flex-end;
+            margin-right: 15px;
+        }
+
+        &__itemsPaginateText {
+            margin-right: 15px;
+        }
+
+        &__arrowsPaginate {
+            margin-right: 0;
+        }
+
+        &__paginate {
+            justify-content: flex-end;
+        }
+
+    }
+}

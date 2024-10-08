@@ -1,0 +1,70 @@
+<div class="container-dialog-producto">
+  <em class="icon-close" (click)="closeDialog()"></em>
+  <div class="bold-20 primario text-center">Datos producto</div>
+  <form class="form-horizontal row scroll-form" [formGroup]="registerForm" #formDirective="ngForm" (ngSubmit)="onSubmit()">
+    <div class="form-group col-md-6 col-sm-12" *ngFor="let field of fields">
+      
+      <div *ngIf="field.Type != 'date' && form[field.Code]" class="container-inputs-data-product">
+        <mat-form-field class="height-input-form" required appearance="fill">
+          <mat-label>{{ field.Name }}</mat-label>
+          <input 
+              matInput 
+              *ngIf="field.Type != 'list'" 
+              [formControlName]="field.Code" 
+              [id]="field.Code"
+              [type]="field.Type" 
+              [ngClass]="{ 'is-invalid': submitted && form[field.Code].errors }" 
+            />
+          <mat-select 
+              [formControlName]="field.Code" 
+              [id]="field.Code" 
+              *ngIf="field.Type == 'list'"
+            >
+            <mat-option *ngFor="let item of field.DataList" value="{{ item.SubCodigo }}">
+              {{ item.Descripcion }}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+        <div *ngIf="submitted && form[field.Code].errors" class="invalid-feedback-data-product">
+          <span>{{ field.MessageError }}</span>
+        </div>
+      </div>
+
+      <div *ngIf="field.Type == 'date' && form[field.Code]" class="container-inputs-data-product">
+        <mat-form-field class="height-input-form" required appearance="fill">
+          <mat-label>{{ field.Name }}</mat-label>
+          <input 
+            matInput 
+            [matDatepicker]="picker" 
+            readonly (dateChange)="changeDatePicker(field.Code)"
+            [formControlName]="field.Code" 
+            [id]="field.Code"
+            [ngClass]="{ 'is-invalid': submitted && form[field.Code].errors }" 
+          />
+          <mat-datepicker-toggle [for]="picker" matSuffix></mat-datepicker-toggle>
+          <mat-datepicker #picker></mat-datepicker>
+        </mat-form-field>
+        <div *ngIf="submitted && form[field.Code].errors" class="invalid-feedback-data-product">
+          <span>{{ field.MessageError }}</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-md-6 col-sm-12">
+      <span class="description regular-16 primario"><span class="text-nota regular-16 primario"> Nota</span>: el
+        producto será enviado al
+        correo
+        <span class="text-email regular-16 primario">{{ user.Email }},</span>
+        verifica que sea el correcto
+        <br />
+        <br />
+        <span class="regular-16 primario">*Campos requeridos</span>
+      </span>
+    </div>
+    <div class="mt-4 centrar-boton pb-5">
+
+      <button class="button-enviar mt-4" (click)="onSubmit()"><span class="regular-18 primario">Confirmar</span></button>
+
+    </div>
+  </form>
+</div>

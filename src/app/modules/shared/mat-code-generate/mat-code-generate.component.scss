@@ -1,0 +1,49 @@
+.modal-confirmar {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  flex-flow: row;
+  margin-top: 2em;
+  padding: 0;
+
+  button {
+    margin: 0 5px;
+    max-width: 265px;
+    border: none;
+  }
+}
+
+.info {
+  margin-bottom: 3em;
+
+  img {
+    width: 100%;
+    max-width: 120px;
+  }
+}
+
+
+.icon-close {
+  position: absolute;
+  right: 15px;
+  top: 15px;
+  cursor: pointer;
+}
+
+.container-dialog-custom {
+  justify-content: center;
+  align-items: center;
+  padding: 2rem 1rem;
+}
+
+
+
+@media (max-width: 768px) {
+  .regular-18 {
+    font-size: 15px;
+  }
+
+  .regular-13 {
+    font-size: 14px !important;
+  }
+}

@@ -1,0 +1,21 @@
+<div class="container-dialog-custom">
+    <div class="contenIcon" (click)="closeDialog(true)"></div>
+    <mat-icon class="icon">close</mat-icon>
+
+  <div class="info text-center">
+    <img [src]="dialogIcon" alt="">
+  </div>
+
+  <div class="container-fluid terciary text-center block">
+    <span class="title-popUP regular-24 primary mb-3 text-center">{{title}}</span>
+    <span class="regular-24 primary text-dialog">{{confirmText}}</span>
+    <div class="btn-box">
+      <button class="submit_btn" (click)="PopUpconfirm()">
+        <span class="bold-16 primary">{{btn1_message}}</span>
+      </button>
+      <button class="submit_btn bold-16 primary" (click)="closeDialog(false)"> <span
+          class="bold-16 primary">{{btn2_message}}</span></button>
+    </div>
+  </div>
+
+</div>

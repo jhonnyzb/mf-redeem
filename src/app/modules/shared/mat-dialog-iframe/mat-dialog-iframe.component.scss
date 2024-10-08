@@ -1,0 +1,76 @@
+
+
+.container-catalog-iframe{
+  display: grid;
+  grid-template-rows: 1fr 6.5fr 1fr;
+  max-height: 100%;
+}
+
+#iFrame1 {
+  overflow-x: hidden;
+  overflow: hidden;
+}
+
+.tyc {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.titulo {
+  display: block;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  width: 100%;
+  margin-bottom: 0.5rem !important;
+  margin-top: 0.5rem !important;
+
+  .content-titulo {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+  }
+}
+
+.icono-cerrar {
+  margin-bottom: 10px;
+  justify-content: flex-end;
+}
+
+.boton_terminos {
+  background: var(--ngx-valepro-color-tertiary);
+  color: var(--ngx-valepro-color-secondary);
+  width: 100%;
+  border-radius: 50px;
+  min-width: 250px;
+  border: none;
+}
+
+
+
+
+
+
+
+.icon-close {
+  position: absolute;
+  right: 10px;
+  top: 10px;
+}
+
+
+.title_TC {
+  line-height: 15px;
+  position: relative;
+  margin: 0;
+}
+
+.container-message {
+  overflow: auto;
+}
+
+.mat-dialog-container {
+  overflow-x: hidden;
+}

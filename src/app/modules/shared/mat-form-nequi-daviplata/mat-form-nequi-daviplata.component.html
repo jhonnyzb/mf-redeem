@@ -1,0 +1,31 @@
+<div class="content">
+  <div class="content-icon">
+    <em class="icon-close" (click)="closeDialog(false)"></em>
+  </div>
+
+  <div class="content-title">
+    <p class="bold-20 terciary">Datos producto</p>
+  </div>
+  <div class="content-info-user mt-3" >
+    <p class="medium-16 terciary mt-2" *ngFor="let label of this.data.ParametrosRedimir">
+      {{label.Descripcion}}
+      <span class="light-16" [ngClass]="validateDataUser(label)">{{ label.ValorDefault }}</span>
+    </p>
+  </div>
+
+  <div class="content-description my-4">
+    <p class="light-16 terciary text-mobile-description">
+      Recuerda que solo es posible realizar la redención de este producto al
+      <strong class="medium-16 terciary text-mobile-description">
+        número registrado en este programa,
+      </strong>
+      si necesitas modificarlo haz clic en
+      <span class="medium-16 terciary text-mobile-description"> “Actualizar datos”.</span>
+    </p>
+  </div>
+
+  <div class="content-button">
+    <button class="mb-3" (click)="closeDialog(true)">Confirmar</button>
+    <button routerLink="/main/account/detail-account" (click)="closeDialog(false)">Actualizar datos</button>
+  </div>
+</div>

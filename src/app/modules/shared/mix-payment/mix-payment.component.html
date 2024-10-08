@@ -1,0 +1,36 @@
+<div class="content-mix" *ngIf="isVisibleMixPayment">
+
+  <div class="btn_toggle">
+    <div class="text_pay">
+      <span class="medium-20 primario">Aquí podrás pagar con:</span><br>
+      <span class="medium-20 primario">Puntos y dinero</span><br>
+    </div>
+    <mat-slide-toggle (click)="initValues()" [(ngModel)]="isPermited"></mat-slide-toggle>
+  </div>
+  <div *ngIf="isPermited">
+
+
+    <div class="text_pay_2">
+      <span class="mensaje-text-pay-2 regular-12 primario">Debes tener un 80% de puntos y un mínimo de 20% para realizar
+        el pago</span>
+    </div>
+
+    <div class="pay_box">
+      <div class="pay_box_chil">
+        <span class="regular-12 primario">PUNTOS</span>
+        <input class="regular-12 primario" (blur)="calculateMoneyPay()" [(ngModel)]="pointsSelected" min="minPoints"
+          max="maxPoints" type="number" />
+      </div>
+      <div class="pay_box_chil">
+        <span class="regular-12 primario">COP</span>
+        <input class="regular-12 primario" disabled="disabled" [value]="ammountSelectedInput" />
+      </div>
+    </div>
+
+    <div class="text_pay_2">
+      <span class="regular-12 primario"><strong class="regular-12 primario">Medios de pago:</strong> tarjeta debíto y
+        crédito</span>
+
+    </div>
+  </div>
+</div>

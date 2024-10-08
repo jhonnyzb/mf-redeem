@@ -1,0 +1,246 @@
+.adress-container {
+  display: flex;
+  flex-direction: column;
+  max-width: 1200px;
+  margin-top: 20px;
+  height: 100%;
+
+  &__button-divider {
+    border-radius: 22px;
+    background-color: var(--ngx-valepro-color-primary);
+    height: 44px;
+    display: flex;
+    align-items: center;
+    margin-bottom: 1rem;
+  }
+
+  &__button-content {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    padding-left: 1rem;
+  }
+}
+
+.adress-list {
+  display: grid;
+  grid-template-columns: 1fr;
+
+  &__grid {
+    display: grid;
+    grid-template-columns: 1fr;
+  }
+
+  &__card {
+    max-height: 170px;
+    padding: 16px 0;
+    width: 100%;
+    background-color: var(--color-white);
+    box-shadow: 0px 0px 6px #00000029;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    margin: 0 0 1rem 0;
+    border-radius: 8px;
+
+    &--add {
+      height: 78px;
+      justify-content: center;
+      cursor: pointer;
+      flex-direction: row;
+      align-items: center;
+      align-content: center;
+      flex-wrap: wrap;
+
+      &:focus-visible {
+        outline: 0px;
+      }
+    }
+
+  }
+
+  &__card-content {
+    height: 75px;
+    margin-top: 5px;
+  }
+
+  &__card-text {
+    display: block;
+
+    &--capitalize {
+      text-transform: capitalize;
+    }
+
+    &--ellipsis {
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      max-width: 40ch;
+      display: block;
+    }
+
+    &--title {
+      margin-bottom: 4px;
+    } 
+  }
+
+  &__main {
+    width: 139px;
+    background-color: var(--ngx-valepro-color-tertiary);
+    padding: 4px 0rem 4px 1rem;
+
+    &--no {
+      display: none;
+      background-color: var(--color-white);
+    }
+  }
+
+  &__click {
+    cursor: pointer;
+     
+    &--space {
+      margin-top: 10px;
+    }
+
+  }
+
+  &__icon {
+    width: 55px;
+    height: 55px;
+    font-size: 55px;
+    color: var(--ngx-valepro-color-tertiary);
+  }
+
+  &__btn-content {
+    display: flex;
+    justify-content: center;
+    margin: 0.5rem 0 200px;
+    &--moreCards {
+        margin-bottom: 60px;
+    }
+  }
+
+  &__btn {
+    width: 260px;
+    height: 44px;
+    border: none;
+    border-radius: 22px;
+    background-color: var(--ngx-valepro-color-tertiary);
+    cursor: pointer;
+  }
+
+  &__card-perfil {
+    background-color: #1A0C3F33;
+    border: 1px solid #1A0C3F66;
+    border-radius: 4px;
+    padding: 4px;
+    margin-top: 5px;
+    margin-bottom: 5px;
+  }
+
+  &__space-main {
+    display: none;
+    height: 70px;
+  }
+}
+
+.gray {
+  color: #dbdbdb;
+}
+
+.pd-l {
+  padding: 0 1rem;
+}
+
+.space-top {
+  margin-top: 30px;
+}
+
+@media screen and (min-width: 768px) and (max-width: 1023px) {
+  .adress-list {
+
+    &__buttons {
+      position: absolute;
+      right: 16px;
+      margin-top: 36px;
+    }
+
+    &__card-text {
+
+      &--ellipsis {
+        text-overflow: initial;
+        max-width: 60ch;
+      }
+    }
+
+    &__card-content {
+      height: 65px;
+      margin-top: none;
+    }
+
+    .space-top {
+      margin-top: 45px;
+    }
+
+    &__space-main {
+      display: block;
+    }
+  }
+}
+
+@media screen and (min-width: 1024px) {
+  .adress-list {
+    display: grid;
+    grid-template-columns: 312px 612px;
+
+    &__grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      width: 102%;
+    }
+
+    &__card {
+      height: 240px;
+      width: 282px;
+      background-color: var(--color-white);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-around;
+      margin: 0 1.5rem 30px 0;
+
+      &--add {
+        justify-content: center;
+        align-items: center;
+        cursor: pointer;
+      }
+
+    }
+
+    &__icon {
+      margin-bottom: 1rem;
+    }
+
+    &__buttons {
+      position: initial;
+      margin: 0;
+    }
+
+    &__btn-content {
+      justify-content: flex-end;
+    }
+
+    &__main {
+      &--no {
+        display: block;
+      }
+    }
+
+    &__space-main {
+      display: none;
+    }
+  }
+
+  .space-top {
+    margin-top: 30px;
+  }
+}

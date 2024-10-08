@@ -1,0 +1,45 @@
+<div class="content-detail container-fluid">
+  <div class="container">
+    <div class="row content-mobile">
+      <div class="col-12 col-sm-12 col-md-5 col-lg-5">
+        <div class="row contenedor-imagen-texto">
+          <div class="col-xs-12 col-sm-12 col-md-5 detail-img">
+            <figure class="detail-imagen-premio col-md-auto">
+              <img [src]="product.Imagen" alt="" />
+            </figure>
+            <hr class="hr-imagen only-mobile">
+          </div>
+          <div class="columna-texto col-xs-12 col-sm-12 col-md-6">
+            <span class="titulo-detalle bold-24 primario mb-0">
+              Agregaste a tu carrito
+              <em class="check icon-check"></em>
+            </span>
+            <hr class="hr-detalle" />
+            <span class=" titulo-producto regular-18 primario mb-2" id="productName">
+              {{ product.Nombre | uppercase}}
+            </span>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-lg-4 col-md-4 col-sm-12 col-12 centrar-contenido vertical-line">
+        <div class="row">
+          <p>
+            <span class="valor light-30 primario mb-2">{{product.Puntos | number}}</span>
+            <span class="tipo-moneda regular-13  primario">{{product.NombrePunto}}</span>
+          </p>
+
+          <div class="pb-3 nota">
+
+            <span class="nota-span regular-12 primario"><strong class="nota-strong medium-12 primario">Nota:</strong> La
+              fecha de entrega puede variar entre 5 a 10 días hábiles
+              (sujeto a disponibilidad)</span>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-3 col-md-3 col-sm-12" >
+        <button class="btn-car-view mt-4" (click)="goCart(product)"><span class="regular-18 primario">Ver carrito</span></button>
+      </div>
+    </div>
+  </div>
+</div>

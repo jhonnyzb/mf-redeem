@@ -1,0 +1,65 @@
+.modal-confirma-borrar{
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  flex-flow: row;
+  margin-top: 3em;
+}
+.icon-close{
+  position: absolute;
+  right: 15px;
+  top: 15px;
+  cursor: pointer;
+}
+
+.button-color-primary{
+  max-width: 250px;
+  width: 100%;
+}
+.login{
+  border-radius: 24px;
+}
+
+.primario{
+  padding-left: 0;
+  width: 62%;
+}
+
+.container-dialog-custom{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+.text_tittle{
+  font-size: 24px;
+  padding: 1rem 1rem 2rem 1rem;
+  font-weight: 600;
+}
+.content-button{
+  width: 40%;
+  height: 42px;
+}
+.boton.login, .boton.registro {
+  background: var(--ngx-valepro-color-primary);
+}
+@media (max-width: 768px) {
+  .regular-24 {
+    font-size: 18px;
+  }
+  .regular-18 {
+      font-size: 15px;
+  }
+  .regular-13{
+      font-size: 14px !important;
+  }
+  .content-button{
+    width: 80%;
+  }
+}
+@media (max-width: 460px) {
+  .content-button{
+    width: 90%;
+  }
+}
+  

@@ -1,0 +1,16 @@
+<div class="container-dialog-custom" *ngIf="showPopUp">
+    <em class="icon-close" (click)="closeDialog()"></em>
+    <div class="info text-center">
+        <img [src]="dialogIcon" alt="">
+    </div>
+
+    <div class="container-fluid regular-18 primario text-center block">
+        <P>{{popupMessage}}
+        </P>
+    </div>
+
+    <div class="modal-confirmar">
+        <button (click)="aceptar()">Aceptar</button>
+    </div>
+
+</div>

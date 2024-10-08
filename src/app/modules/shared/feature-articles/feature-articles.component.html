@@ -1,0 +1,68 @@
+<div *ngIf="listFeaturedArticles.length > 0">
+  <div class="boton-divisor">
+    <span class="medium-20 primario titulo">Artículos destacados</span>
+    <button class="medium-17 secundario texto-flecha boton-ver-todo" (click)="goCatalogs()">
+      Ver catálogo <span class="icon-chevron-right"></span>
+    </button>
+  </div>
+  <ngx-slick-carousel [config]="config" (afterChange)="afterChange()" (beforeChange)="beforeChange()">
+    <div ngxSlickItem class="swiper-slide card-articulo"
+      [ngClass]="{'card-articulo-destacado':articles.ParametrosExtra && articles.ParametrosExtra.MostrarAmpliado}"
+      *ngFor="let articles of listFeaturedArticles | slice: 0:10">
+      <div class="swiper-wrapper content-articulos-destacados">
+        <figure class="imagen-catalogo" (click)="onSelectProduct(articles)">
+          <img [src]="articles.Imagen" alt="" />
+
+          <span *ngIf=" articles.ParametrosExtra && articles.ParametrosExtra.Etiqueta" [ngClass]="{ 'etiqueta-nuevo light-14 terciary': articles.ParametrosExtra.Etiqueta.toLowerCase() == 'nuevo',
+                'etiqueta-oferta light-14 terciary': articles.ParametrosExtra.Etiqueta.toLowerCase() == 'oferta'}">
+            {{ articles.ParametrosExtra.Etiqueta }}
+          </span>
+
+        </figure>
+
+        <div class="content-info">
+
+          <div class="texto-articulo" (click)="onSelectProduct(articles)">
+
+            <span class="titulo-articulo medium-20 primario">
+              {{ articles.Nombre }}
+            </span>
+            <span class="descripcion-articulo regular-13 primario">
+              {{ articles.Descripcion | slice: 0:70 }}...
+            </span>
+          </div>
+          <div class="valor" (click)="onSelectProduct(articles)" [ngClass]="{'valor-oferta':articles.ParametrosExtra &&articles.ParametrosExtra.Etiqueta.toLowerCase() == 'oferta',
+                'text-card-articulo-destacado':articles.ParametrosExtra}">
+            <span class="precio-descuento"
+              *ngIf=" articles.ParametrosExtra && articles.ParametrosExtra.Etiqueta.toLowerCase() == 'oferta'">
+              <span class="texto-antes regular-12 primario">Antes</span>
+              <div class="precio-antes">
+                <span class="text-puntos-numero  light-14 primario">
+                  {{ articles.ParametrosExtra.ValorAnterior | number }}</span>
+                <span class="tipo-moneda medium-10 primario">{{
+                  articles.NombrePunto
+                  }}</span>
+              </div>
+            </span>
+            <span class="precio alinear-puntos"><span class="texto-ahora regular-12 primario" *ngIf="
+                  articles.ParametrosExtra &&
+                  articles.ParametrosExtra.Etiqueta.toLowerCase() == 'oferta'
+                ">Ahora</span>
+              <div>
+                <span class="text-puntos-numero medium-20 primario">
+                  {{ articles.Puntos | number }}
+                </span>
+                <span class="tipo-moneda regular-14 primario">
+                  {{articles.NombrePunto}}
+                </span>
+              </div>
+            </span>
+          </div>
+          <div class="Btn_a_carrito">
+            <button (click)="addCart(articles)" class="icon-shopping-cart button-icon"></button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </ngx-slick-carousel>
+</div>

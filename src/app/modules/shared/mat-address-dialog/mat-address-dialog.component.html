@@ -1,0 +1,62 @@
+<div class="mat-address-container">
+  <div class="mat-address-container__contenIcon" (click)="closeDialog()"></div>
+  <mat-icon class="mat-address-container__icon">close</mat-icon>
+  <div class="mat-address-container__title">
+    <div class=" bold-32 primary mb-4">Mi dirección</div>
+  </div>
+  <div class="col-12" [formGroup]="registerForm">
+    <div class="mat-address-container__row-inside">
+      <mat-form-field>
+        <mat-label>Departamento</mat-label>
+        <mat-select formControlName="department" (selectionChange)="getCities()">
+          <mat-option *ngFor="let item of _listDepartments" [value]="item.codeId">
+            {{item.name}}
+          </mat-option>
+        </mat-select>
+        <mat-error *ngIf="this.registerForm.get('department')?.hasError('required')">* Campo obligatorio</mat-error>
+      </mat-form-field>
+      <mat-form-field>
+        <mat-label>Ciudad</mat-label>
+        <mat-select formControlName="city">
+          <mat-option *ngFor="let item of _listCities" [value]="item.codeId">
+            {{item.name}}
+          </mat-option>
+        </mat-select>
+        <mat-error *ngIf="this.registerForm.get('city')?.hasError('required')">* Campo obligatorio</mat-error>
+      </mat-form-field>
+    </div>
+    <div class="mat-address-container__row-inside">
+      <mat-form-field>
+        <mat-label>Barrio</mat-label>
+        <input formControlName="neighborhood" matInput maxlength="60">
+        <mat-error *ngIf="this.registerForm.get('neighborhood')?.hasError('required')">* Campo obligatorio o inválido</mat-error>
+      </mat-form-field>
+      <mat-form-field>
+        <mat-label>Dirección</mat-label>
+        <input formControlName="address" matInput maxlength="60">
+        <mat-error *ngIf="this.registerForm.get('address')?.hasError('required')">* Campo obligatorio o inválido</mat-error>
+      </mat-form-field>
+    </div>
+    <div class="mat-address-container__row-inside">
+      <mat-form-field>
+        <mat-label>Tipo de vivienda</mat-label>
+        <mat-select formControlName="homeType">
+          <mat-option *ngFor="let item of listHome" [value]="item.codeId">
+            {{item.name}}
+          </mat-option>
+        </mat-select>
+        <mat-error *ngIf="this.registerForm.get('homeType')?.hasError('required')">* Campo obligatorio</mat-error>
+      </mat-form-field>
+      <mat-form-field>
+        <mat-label>Referencias adicionales</mat-label>
+        <input maxlength="200" formControlName="references" matInput>
+      </mat-form-field>
+    </div>
+
+  </div>
+
+
+  <div class="mt-2 pb-3 mat-address-container__btn-container">
+    <button class="mat-address-container__btn bold-16 primary" (click)="createAddress()">Confirmar</button>
+  </div>
+</div>

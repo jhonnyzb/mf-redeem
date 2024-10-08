@@ -1,0 +1,40 @@
+<div class="adress">
+  <div class="adress-container">
+    <div class="adress-container__button-divider">
+      <div class="adress-container__button-content">
+        <span class="bold-16 primary">Dirección de envío</span>
+      </div>
+    </div>
+  </div>
+  <div class="adress-list">
+    <div class="adress-list__card adress-list__card--add" (click)="modalOpen()">
+      <mat-icon class="adress-list__icon" >add</mat-icon>
+      <span class="bold-20 primary">Agregar dirección</span>
+    </div>
+    <div class="adress-list__grid">
+      <div class="adress-list__card" *ngFor="let address of listAddress">
+        <span *ngIf="address.Main" class="regular-14 primary adress-list__main">Dirección Principal</span>
+        <span *ngIf="!address.Main" class="regular-14 primary adress-list__main adress-list__main--no"></span>
+        <div class="adress-list__card-content pd-l">
+          <div *ngIf="address.ResidenceAddressId == 0" class="bold-12 primary adress-list__card-perfil">DIRECCIÓN EN EL PERFIL</div>
+          <div *ngIf="address.ResidenceAddressId !== 0" class="bold-14 primary adress-list__card-text adress-list__card-text--title">Dirección de envío:</div>
+          <div class="regular-12 primary adress-list__card-text adress-list__card-text--capitalize adress-list__card-text--ellipsis">{{address.ResidenceAddress}}</div>
+          <div class="regular-12 primary adress-list__card-text adress-list__card-text--capitalize adress-list__card-text--ellipsis">{{address.CityName | lowercase }} - {{address.Neighborhood | lowercase }}</div>
+          <div class="regular-12 primary adress-list__card-text adress-list__card-text--capitalize">{{country | lowercase }}</div>
+        </div>
+        <div *ngIf="address.ResidenceAddressId == 0" class="regular-12 primary pd-l space-top">* Si quieres cambiar la información de esta dirección, actualiza tus datos.</div>
+        <div class="adress-list__buttons pd-l">
+          <a *ngIf="address.ResidenceAddressId !== 0 && !address.Main"  class="regular-14 primary adress-list__click" (click)="delete(address.ResidenceAddressId)"> Eliminar </a>
+          <span *ngIf="address.ResidenceAddressId !== 0 && !address.Main" class="gray"> | </span>
+          <div *ngIf="address.ResidenceAddressId == 0" class="adress-list__space-main"></div>
+          <a *ngIf="!address.Main" class="regular-14 primary adress-list__click adress-list__click--space" (click)="markAsMain(address.ResidenceAddressId)">
+          Establecer como principal </a></div>
+      </div>
+    </div>
+  </div>
+  <div class="adress-list__btn-content" [ngClass]="{ 'adress-list__btn-content--moreCards' : listAddress.length > 2 }">
+    <button (click)="goResume()" class="adress-list__btn bold-16 primary">
+      Continuar
+    </button>
+  </div>
+</div>
